@@ -1,0 +1,464 @@
+/* Global Styles */
+body {
+  background: #e2e2e2;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+ 
+
+}
+#homebody {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: slider 25s infinite ease-in-out;
+  -webkit-animation: slider 25s infinite ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+@keyframes slider {
+  0% {
+      background-image: url("/image/car1.webp");
+  }
+  20% {
+      background-image: url("/image/car2.webp");
+  }
+  40% {
+      background-image: url("/image/car3.jpg");
+  }
+  60% {
+      background-image: url("/image/car1.webp");
+  }
+  80% {
+      background-image: url("/image/car2.webp");
+  }
+  100% {
+      background-image: url("/image/car1.jpg");
+  }
+}
+
+/* Fallback for Older Browsers */
+@-webkit-keyframes slider {
+  0% {
+      background-image: url("/image/car1.webp");
+  }
+  20% {
+      background-image: url("/image/car2.webp");
+  }
+  40% {
+      background-image: url("/image/car3.jpg");
+  }
+  60% {
+      background-image: url("/image/car4.jpg");
+  }
+  80% {
+      background-image: url("/image/car5.jpg");
+  }
+  100% {
+      background-image: url("/image/car1.jpg");
+  }
+}
+
+/* Optional: Add Overlay for Better Text Visibility */
+#homebody::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+  z-index: -1;
+}
+
+/* Add Animation Timing & Smooth Transitions */
+#homebody {
+  transition: background-image 1s ease-in-out;
+}
+
+/* Primary Background */
+.bg-primary {
+  background: rgb(20, 101, 166);
+}
+
+/* Banner Section */
+.banner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: slider 15s infinite linear;
+}
+
+/* Keyframe Animation for Background Images */
+@keyframes slider {
+  0% {
+      background-image: url("/image/car1.webp");
+  }
+
+  20% {
+      background-image: url("/image/car2.webp");
+  }
+
+  40% {
+      background-image: url("image/car3.jpg");
+  }
+
+  60% {
+      background-image: url("image/car4.jpg");
+  }
+
+  80% {
+      background-image: url("image/car5.jpg");
+  }
+
+  100% {
+      background-image: url("image/car1.jpg");
+  }
+  
+}
+
+/* Text Content Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.text-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+
+.text-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.text-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.text-content .btn {
+  font-size: 1.1rem;
+  padding: 10px 30px;
+}
+
+
+/* Card Style */
+.my-card {
+  padding: 20px;
+  background: white;
+}
+
+/* Login Box Styles */
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: rgb(20, 101, 166);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+  color: white;
+}
+
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 18%;
+  background: white;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  padding-top: 45px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar a {
+  display: block;
+  width: 100%;
+  padding: 10px 25px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  transition: background 0.3s ease;
+}
+
+.sidebar a:hover {
+  background: #e2e2e2;
+}
+
+.sidebar .divider {
+  height: 0.5px;
+  width: 100%;
+  background: #e2e2e2;
+  margin-top: 10px;
+}
+
+.sidebar .crossBtn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+/* Content Styling */
+.content {
+  margin-left: 20%;
+  padding: 20px;
+}
+
+/* Sidebar Hide on Small Screens */
+@media only screen and (max-width: 600px) {
+  .sidebar {
+      display: none;
+      width: 80%;
+      background: white;
+      height: 100vh;
+      position: fixed;
+      padding-top: 45px;
+  }
+
+  .content {
+      margin-left: 0%;
+  }
+
+  .sidebar .crossBtn {
+      display: block;
+  }
+}
+
+/* Ride Booking Form Styles */
+.schedule-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.schedule-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.schedule-container .form-group {
+  margin-bottom: 15px;
+}
+
+.schedule-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555555;
+}
+
+.schedule-container .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.schedule-container .form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.schedule-container .go-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.schedule-container .go-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Ensuring responsive styles for the form */
+@media only screen and (max-width: 768px) {
+  .schedule-container {
+      padding: 20px;
+      margin: 10px;
+      width: 90%;
+  }
+}
+
+
+
+
+  /* About Section */
+  .about-section {
+    background-color: #FAF3E0;
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .about-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+/* why chose carpool */
+
+  .carpool-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+    gap: 20px;
+  }
+
+  .carpool-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .carpool-text {
+    max-width: 600px;
+    text-align: left;
+  }
+
+  .carpool-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .carpool-text ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .carpool-text ul li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .carpool-text ul li:before {
+    content: "✦";
+    font-size: 1.2rem;
+    color: #fbc02d; /* Gold color */
+    flex-shrink: 0;
+  }
+
+
+  /* Team Section */
+  .team-section {
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  .team-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* Team Cards */
+  .team-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .team-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  .team-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .team-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .team-card strong {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+
+
+
+
+

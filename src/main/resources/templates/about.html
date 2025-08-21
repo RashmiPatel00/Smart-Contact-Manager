@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="" th:href="@{/Css/style.css}">
+</head>
+<body>
+  <section>
+  <div class="about-section">
+    <h1>About Us</h1>
+   
+    <p>
+      We are a team of four dedicated final-year students, driven by our passion for sustainable development and environmental protection. Combining our technical expertise with a vision for a greener future, we strive to create innovative solutions that make transportation smarter and more sustainable.
+    </p>
+  </div>
+
+
+  <div class="carpool-section">
+    <img src="" th:src="@{/image/carpool.webp}" alt="Carpool Image" style="max-width: 40%;">
+    <div class="carpool-text">
+      <h2>Why Choose Carpool System</h2>
+      <ul>
+        <li>
+          <strong>Save Money</strong> - <p>Carpooling significantly reduces fuel and parking costs, making it an affordable option for daily commutes.</p>
+        </li>
+        <li>
+          <strong>Reduce Traffic Stress</strong>-Carpooling helps decrease the number of cars on the road, leading to less congestion and shorter travel times.
+        </li>
+        <li>
+          <strong>Convenience and Comfort</strong> - Relax while someone else drives, or enjoy a more comfortable ride with fewer people than public transport.
+        </li>
+        <li>
+          <strong>Support Sustainability</strong> - choosing carpooling, you're supporting a more sustainable and responsible transportation model. 
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="team-section">
+    <h2>Our Stellar Team</h2>
+    <div class="team-cards">
+      <div class="team-card">
+        <img src=""th:src="@{/image/shreya.jpg}" alt="Shreya Roy">
+        <h3>Shreya Roy</h3>
+        <p><strong>Frontend Developer</strong></p>
+        <p>Designed and developed an intuitive, responsive user interface to ensure seamless user experiences.</p>
+      </div>
+      <div class="team-card">
+        <img src="" th:src="@{/image/rashmi.jpg}"alt="Rashmi Patel">
+        <h3>Rashmi Patel</h3>
+        <p><strong>Backend Developer</strong></p>
+        <p>Engineered a robust backend system to manage user data, optimize machine learning algorithms, and ensure efficiency.</p>
+      </div>
+      <div class="team-card">
+        <img src="sandhya.jpg"th:src="@{/image/sandhya.jpg}" alt="Sandhya Yadav">
+        <h3>Sandhya Yadav</h3>
+        <p><strong>Database Manager</strong></p>
+        <p>Designed and maintained the database structure, ensuring secure storage, retrieval, and performance optimization.</p>
+      </div>
+      <div class="team-card">
+        <img src=""th:src="@{/image/sunaina.jpg}" alt="Sunaina Sharma">
+        <h3>Sunaina Sharma</h3>
+        <p><strong>Project Manager</strong></p>
+        <p>Coordinated the team’s efforts, streamlined project workflows, and ensured timely delivery of a fully functional and user-centric carpool system.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+

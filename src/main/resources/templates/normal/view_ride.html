@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Rides</title>
+  <link rel="stylesheet" href="/Css/view-ride.css">
+</head>
+<body>
+  <div class="container text-center">
+    <h2 class="title ">Your Scheduled Rides</h2>
+    <div class="rides-container" th:each="ride, iterStat : ${rides}">
+      <div class="ride-card">
+        <div class="ride-info">
+          <img src="" th:src="@{/image/placeholder.png}" alt="From" class="icon">
+          <strong>From:</strong> <span th:text="${ride.fromLocation}"></span>
+        </div>
+        <div class="ride-info">
+          <img src=""th:src="@{/image/placeholder(1).png}" alt="To" class="icon">
+          <strong>To:</strong> <span th:text="${ride.toLocation}"></span>
+        </div>
+        <div class="ride-info">
+          <img src=""th:src="@{/image/calender.png}" alt="Date" class="icon">
+          <strong>Date:</strong> <span th:text="${ride.date}"></span>
+        </div>
+        <div class="ride-info">
+          <img src=""th:src="@{/image/clock.png}" alt="Time" class="icon">
+          <strong>Time:</strong> <span th:text="${ride.time}"></span>
+        </div>
+        <div class="ride-info">
+          <img src="" th:src="@{/image/condition.png}"alt="Status" class="icon">
+          <strong>Status:</strong> <span th:text="${ride.status != null ? ride.status : 'Pending'}"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

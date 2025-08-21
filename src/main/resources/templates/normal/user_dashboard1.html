@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/Base::Layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Booking</title>
+    <link rel="stylesheet" href="/Css/style.css">
+    <style>
+        .result-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-container h3 {
+            color: #007bff;
+        }
+
+        .result-container p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Welcome, <span class="text-uppercase" th:text="${user.name}">User</span></h1>
+
+        <div class="schedule-container">
+            <h2>Looking for Your Ride</h2>
+            <form id="rideForm" action="/user/searchResults" method="POST">
+                <div class="form-group">
+                    <label for="from">From:</label>
+                    <input type="text" id="from" name="fromLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="to">To:</label>
+                    <input type="text" id="to" name="toLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <button type="submit" class="go-btn">Search</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Set the minimum date and time
+        const dateInput = document.getElementById('date');
+        const timeInput = document.getElementById('time');
+
+        function setMinDateTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+
+            // Set the minimum date to today
+            dateInput.min = `${year}-${month}-${day}`;
+
+            // Set the minimum time to the current time
+            timeInput.min = `${hours}:${minutes}`;
+
+            // Handle change event when the user selects a date
+            dateInput.addEventListener('change', () => {
+                if (dateInput.value === `${year}-${month}-${day}`) {
+                    // If the selected date is today, set the minimum time to current time
+                    timeInput.min = `${hours}:${minutes}`;
+                } else {
+                    // If the selected date is in the future, remove the time restriction
+                    timeInput.min = '00:00';
+                }
+            });
+        }
+
+        // Initialize the minimum date and time
+        setMinDateTime();
+    </script>
+</body>
+
+</html>

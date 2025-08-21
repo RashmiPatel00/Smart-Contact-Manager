@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Driver Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, rgba(0, 123, 255, 0.8), rgba(255, 255, 255, 0.8)), 
+                  url('https://source.unsplash.com/1600x900/?driver,car') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      animation: fadeInBackground 2s ease-in-out;
+      padding-top: 80px; /* make space for fixed navbar */
+    }
+    h2.text-center {
+      font-weight: bold;
+      color: #007bff;
+      animation: slideDown 1s ease-in-out;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      margin-top: 30px;
+      animation: fadeIn 1.5s ease-in-out;
+      max-width: 900px; /* Increased size */
+    }
+    .form-label {
+      font-weight: bold;
+      color: #495057;
+    }
+    .form-control {
+      border-radius: 12px;
+      animation: fadeInInput 1.5s ease-in-out;
+    }
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    #f1{
+      background-color:#007bffbd ;
+    }
+    .btn-danger {
+      background-color: #dc3545;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+    .btn-danger:hover {
+      background-color: #c82333;
+      transform: scale(1.05);
+    }
+    table.table {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      overflow: hidden;
+      animation: fadeInTable 1.5s ease-in-out;
+    }
+    table.table th, table.table td {
+      text-align: center;
+      vertical-align: middle;
+    }
+    .offcanvas {
+      border-radius: 20px;
+      animation: slideIn 1s ease-in-out;
+    }
+    @keyframes fadeInBackground {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInInput {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInTable {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #emergencyRides {
+      display: none; /* Hide initially */
+    }
+    footer {
+        background-color: #0056b3; /* Black background */
+        color:black; /* Light gray text for better contrast */
+        text-align: center;
+        padding: 15px 0;
+        margin-top: 50px;
+    }
+
+    footer p {
+        margin: 0;
+        font-size: 14px;
+    }
+  </style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Toggle Emergency Rides visibility
+  document.getElementById('emergencyRidesLink').addEventListener('click', function() {
+    var emergencyRides = document.getElementById('emergencyRides');
+    if (emergencyRides.style.display === 'none' || emergencyRides.style.display === '') {
+      emergencyRides.style.display = 'block';  // Show the emergency rides section
+    } else {
+      emergencyRides.style.display = 'none';  // Hide the emergency rides section
+    }
+  });
+
+  // Success alert handler
+  function showSuccessAlert(event) {
+    event.preventDefault(); // prevent actual form submit
+
+    // Show the alert div
+    document.getElementById("successAlert").style.display = "block";
+
+    // Clear the input field (optional)
+    document.getElementById("currentLocation").value = "";
+
+    // Optionally, hide the alert after a few seconds
+    setTimeout(function() {
+      document.getElementById("successAlert").style.display = "none";
+    }, 3000);
+  }
+</script>
+
+<script>
+    function saveProfile(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        // Show an alert
+        alert("Profile saved successfully!");
+
+        // Redirect to the main driver page
+        window.location.href = "/driverPage";
+    }
+</script>
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Driver Portal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="/emergencyRides" id="emergencyRidesLink">Emergency Rides</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="offcanvas" href="#profileSidebar" role="button"
+                aria-controls="profileSidebar">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger fw-bold" href="/">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="profileSidebar" aria-labelledby="profileSidebarLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="profileSidebarLabel">Driver Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form id="profileForm" onsubmit="saveProfile(event)">
+            <div class="mb-3">
+                <label for="licenseNumber" class="form-label">License Number</label>
+                <input type="text" class="form-control" id="licenseNumber" placeholder="Enter License Number" required>
+            </div>
+            <div class="mb-3">
+                <label for="carModel" class="form-label">Car Model</label>
+                <input type="text" class="form-control" id="carModel" placeholder="Enter Car Model" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">AC/Non-AC</label>
+                <select class="form-select" id="acSelection" required>
+                    <option value="AC">AC</option>
+                    <option value="Non-AC">Non-AC</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Save Profile</button>
+        </form>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container mt-5">
+
+    <!-- Success Alert (Hidden initially) -->
+    <div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+      Availability updated successfully!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <h2 class="text-center">Welcome!</h2>
+
+    <!-- Driver Profile -->
+    <div class="mt-4" id="profileSection">
+      <h4>Driver Information: Driver(Driver@gmail.com)</h4>
+    </div>
+
+    <!-- Driver location and availability form -->
+    <div class="mt-4">
+      <h4>Enter Your Location and Availability:</h4>
+      <form id="availabilityForm" action="/updateAvailability" method="post" onsubmit="showSuccessAlert(event)">
+        <div class="mb-3">
+          <label for="currentLocation" class="form-label">Current Location:</label>
+          <input type="text" class="form-control" id="currentLocation" name="currentLocation" placeholder="Enter your current location" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Availability</button>
+      </form>
+    </div>
+
+    <!-- Emergency Rides Section -->
+   
+
+  </div> <!-- End of Main Content -->
+
+  <!-- Footer -->
+  <footer>
+    
+    <div class="container" id="f1">
+
+        <p class="mb-0">© 2025 Smart Ride Manager. All Rights Reserved.</p>
+        <p class="mb-0">Designed and Developed by GWECA Team</p>
+    </div></div>
+  </footer>
+
+</body>
+</html>
